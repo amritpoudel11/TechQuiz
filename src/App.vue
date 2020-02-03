@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <Header />
+    <Header :numOfCorrectAns="numOfCorrectAns" :numTotal="numTotal"/>
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3">
-          <QuestionBox v-if="questions.length" :currQuestion="questions[index]" :next="next" />
+          <QuestionBox v-if="questions.length" :currQuestion="questions[index]" :next="next" :increment="increment"/>
         </b-col>
       </b-row>
     </b-container>
@@ -24,12 +24,22 @@ export default {
   data() {
     return {
       questions: [],
-      index: 0
+      index: 0,
+      numOfCorrectAns: 0,
+      numTotal: 0
     };
   },
   methods: {
     next() {
-      this.index++;
+      if(this.index < 10){
+        this.index++;
+      } 
+    },
+    increment(isCorrect){
+      if(isCorrect){
+        this.numOfCorrectAns++;
+      }
+      this.numTotal++;
     }
   },
   mounted: function() {
@@ -54,5 +64,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+body{
+  background-color: aquamarine !important;
 }
 </style>

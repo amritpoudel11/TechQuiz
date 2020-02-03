@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :numOfCorrectAns="numOfCorrectAns" :numTotal="numTotal"/>
+    <Header :numOfCorrectAns="numOfCorrectAns" :numTotal="numTotal" :questionNumber="index"/>
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3">
@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     next() {
-      if(this.index < 10){
+      if(this.index < 9){
         this.index++;
       } 
     },

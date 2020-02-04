@@ -96,7 +96,7 @@ export default {
   background-color: #00aa00;
 }
 .selected {
-  background-color: #5555ff;
+  background-color: #5555ff !important;
 }
 .incorrect {
   background-color: #ff1010;

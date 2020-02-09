@@ -14,7 +14,7 @@
         >{{answer}}</b-list-group-item>
       </b-list-group>
       <b-button variant="primary" @click="submitAnswer" :disabled="selectedIndex === null || hasAnswered">Submit</b-button>
-      <b-button variant="success" @click="next" :disabled="!hasAnswered">Next</b-button>
+      <b-button variant="success" @click="next" :disabled="!hasAnswered || last">Next</b-button>
     </b-jumbotron>
   </div>
 </template>
@@ -23,7 +23,8 @@ export default {
   props: {
     currQuestion: Object,
     next: Function,
-    increment: Function
+    increment: Function,
+    last: Boolean
   },
   data() {
     return {

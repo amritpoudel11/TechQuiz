@@ -4,7 +4,7 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3">
-          <QuestionBox v-if="questions.length" :currQuestion="questions[index]" :next="next" :increment="increment"/>
+          <QuestionBox v-if="questions.length" :currQuestion="questions[index]" :next="next" :increment="increment" :last="last"/>
         </b-col>
       </b-row>
     </b-container>
@@ -26,14 +26,17 @@ export default {
       questions: [],
       index: 0,
       numOfCorrectAns: 0,
-      numTotal: 0
+      numTotal: 0,
+      last: false
     };
   },
   methods: {
     next() {
       if(this.index < 9){
         this.index++;
-      } 
+      }else{
+        this.last = true;
+      }
     },
     increment(isCorrect){
       if(isCorrect){

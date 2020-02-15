@@ -4,7 +4,8 @@
     <b-container class="bv-example-row">
       <b-row>
         <b-col sm="6" offset="3">
-          <QuestionBox v-if="questions.length" :currQuestion="questions[index]" :next="next" :increment="increment" :last="last"/>
+          <QuestionBox v-if="!last && questions.length" :currQuestion="questions[index]" :next="next" :increment="increment" :last="last"/>
+          <ResultBox v-if="last" :score="numOfCorrectAns" :restart="restart"/>
         </b-col>
       </b-row>
     </b-container>
@@ -14,12 +15,14 @@
 <script>
 import Header from "./components/Header.vue";
 import QuestionBox from "./components/QuestionBox.vue";
+import ResultBox from "./components/ResultBox.vue";
 
 export default {
   name: "app",
   components: {
     Header,
-    QuestionBox
+    QuestionBox,
+    ResultBox
   },
   data() {
     return {
@@ -43,6 +46,25 @@ export default {
         this.numOfCorrectAns++;
       }
       this.numTotal++;
+    },
+    restart(){
+      this.questions = [];
+      this.index = 0;
+      this.numOfCorrectAns = 0;
+      this.numTotal = 0;
+      this.last = false;
+      this.getQuestions();
+    },
+    getQuestions(){
+      fetch("https://opentdb.com/api.php?amount=10&category=18&type=multiple", {
+      method: "get"
+    })
+      .then(response => {
+        return response.json();
+      })
+      .then(responseJson => {
+        this.questions = responseJson.results;
+      });
     }
   },
   mounted: function() {

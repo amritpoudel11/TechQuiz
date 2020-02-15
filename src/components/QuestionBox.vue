@@ -13,8 +13,8 @@
           :class="[!hasAnswered && selectedIndex === index ? 'selected' : hasAnswered && correctIndex === index ? 'correct' : hasAnswered && selectedIndex === index && correctIndex !== index ? 'incorrect' : '']"
         >{{answer}}</b-list-group-item>
       </b-list-group>
-      <b-button variant="primary" @click="submitAnswer" :disabled="selectedIndex === null || hasAnswered">Submit</b-button>
-      <b-button variant="success" @click="next" :disabled="!hasAnswered || last">Next</b-button>
+      <b-button variant="primary" @click="submitAnswer" v-if="!hasAnswered || last">Submit</b-button>
+      <b-button variant="success" @click="next" v-if="hasAnswered">Next</b-button>
     </b-jumbotron>
   </div>
 </template>

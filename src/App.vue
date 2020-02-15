@@ -3,7 +3,7 @@
     <Header :numOfCorrectAns="numOfCorrectAns" :numTotal="numTotal" :questionNumber="index"/>
     <b-container class="bv-example-row">
       <b-row>
-        <b-col sm="6" offset="3">
+        <b-col sm="12" md="8" lg="6" offset-sm="0" offset-md="2" offset-lg="3">
           <QuestionBox v-if="!last && questions.length" :currQuestion="questions[index]" :next="next" :increment="increment" :last="last"/>
           <ResultBox v-if="last" :score="numOfCorrectAns" :restart="restart"/>
         </b-col>

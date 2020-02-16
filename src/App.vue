@@ -9,20 +9,24 @@
         </b-col>
       </b-row>
     </b-container>
+    <Footer/>
   </div>
+  
 </template>
 
 <script>
 import Header from "./components/Header.vue";
 import QuestionBox from "./components/QuestionBox.vue";
 import ResultBox from "./components/ResultBox.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "app",
   components: {
     Header,
     QuestionBox,
-    ResultBox
+    ResultBox,
+    Footer
   },
   data() {
     return {
@@ -83,14 +87,17 @@ export default {
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #d0dae4;
+  padding-top: 2vh;
+  background-color: rgba(54, 47, 47, 0.7) !important;
+  
 }
 body{
-  background-color: aquamarine !important;
+ background-color: rgba(54, 47, 47, 0.7) !important;
+
 }
 </style>

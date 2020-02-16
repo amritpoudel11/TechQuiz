@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="resultBox">
     <h2 v-if="score >= 6">Congratulations!!</h2>
     <h2 v-if="score >= 4 && score < 6">Satisfactory Result!</h2>
     <h2 v-if="score < 4">Extremely Poor!</h2>
@@ -16,3 +16,11 @@ export default {
     }
 }
 </script>
+<style scoped>
+    .resultBox{
+        margin: 18vh auto;
+    }
+    .btn{
+        margin: 10vh auto;
+    }
+</style>

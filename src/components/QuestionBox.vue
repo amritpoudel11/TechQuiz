@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-jumbotron>
-      <template v-slot:lead>{{currQuestion.question}}</template>
+      <template v-slot:lead class="question">{{currQuestion.question}}</template>
 
       <hr class="my-4" />
 
@@ -82,27 +82,33 @@ export default {
 
 <style scoped>
 .jumbotron {
-  background-color: hotpink;
-  color: aliceblue;
+  background-color: transparent;
+  color: #d6d9db;
+  font-weight: bolder;
+   height: 70vh;
 }
 .list-group {
   margin-bottom: 20px;
-  color: hotpink;
+  color:rgb(116, 108, 112);
 }
 .list-group-item:hover {
   cursor: pointer;
   background-color: antiquewhite;
 }
 .correct {
-  background-color: #00aa00;
+  background-color: #00aa00 !important;
 }
 .selected {
   background-color: #5555ff !important;
 }
 .incorrect {
-  background-color: #ff1010;
+  background-color: #ff1010 !important;
 }
 .btn {
   margin: 10px 10px;
+}
+.question{
+  color: #d6d9db;
+  font-weight: bolder;
 }
 </style>
